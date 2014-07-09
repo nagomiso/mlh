@@ -1,17 +1,33 @@
 package nagomiso.study;
 
 public class Tree {
-	private Tree leftChildNode;
-	private Tree rightChildNode;
-	
-	
-	public Tree getLeftChildNode() {
-		return leftChildNode;
+	/**
+	 * ç∂ë§ÇÃéq
+	 */
+	private Tree leftSubTree;
+	/**
+	 * âEë§ÇÃéq
+	 */
+	private Tree rightSubTree;
+	/**
+	 * ñÿÇÃê[Ç≥
+	 */
+	private int depth;
+
+	public Tree getLeftSubTree() {
+		return leftSubTree;
 	}
-	
-	public Tree getRightChildNode() {
-		return rightChildNode;
+
+	public Tree getRightSubTree() {
+		return rightSubTree;
 	}
-	
-	
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public boolean isLeaf() {
+		return (leftSubTree == null) && (rightSubTree == null);
+	}
+
 }
