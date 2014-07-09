@@ -2,15 +2,15 @@ package nagomiso.study;
 
 public class Tree {
 	/**
-	 * �����̎q
+	 * 左部分木
 	 */
 	private Tree leftSubTree;
 	/**
-	 * �E���̎q
+	 * 右部分木
 	 */
 	private Tree rightSubTree;
 	/**
-	 * �؂̐[��
+	 * 木の深さ
 	 */
 	private int depth;
 
@@ -26,7 +26,11 @@ public class Tree {
 		return depth;
 	}
 
-	public boolean isLeaf() {
+	/**
+	 * リーフノードかどうかをチェックする
+	 * @return リーフノードかどうか
+	 */
+	public boolean isLeafNode() {
 		return (leftSubTree == null) && (rightSubTree == null);
 	}
 
