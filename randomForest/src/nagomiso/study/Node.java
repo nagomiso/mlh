@@ -7,27 +7,33 @@ public class Node {
 	private int dimension;
 	private double threshold;
 	private double informationGain;
+	private List<SampleData> preSplitSet;
 	private Node parent;
+	private int depth;
 	private List<Node> children;
-
 
 	public Node() {
 		dimension = 0;
 		threshold = 0d;
 		informationGain = 0d;
+		depth = 0;
 		children = new LinkedList<Node>();
 	}
-	
-	public Node(Node parent){
+
+	public Node(Node parent) {
 		dimension = 0;
 		threshold = 0d;
 		informationGain = 0d;
 		children = new LinkedList<Node>();
 		this.parent = parent;
 	}
-	
-	public void add(Node child){
+
+	public void addNode(Node child) {
 		this.children.add(child);
+	}
+
+	public void addPreSplitSet(SampleData sampleData) {
+		parent.addPreSplitSet(sampleData);
 	}
 
 	public int getDimension() {
@@ -48,6 +54,18 @@ public class Node {
 
 	public double getInformationGain() {
 		return informationGain;
+	}
+
+	public List<SampleData> getPreSplitSet() {
+		return preSplitSet;
+	}
+
+	public void setPreSplitSet(List<SampleData> preSplitSet) {
+		this.preSplitSet = preSplitSet;
+	}
+
+	public int getDepth() {
+		return depth;
 	}
 
 }
