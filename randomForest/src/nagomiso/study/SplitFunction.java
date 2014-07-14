@@ -1,18 +1,31 @@
 package nagomiso.study;
 
-import gilberthouse.random.RandomGenerator;
-import gilberthouse.random.SFMT19937;
-
+import  nagomiso.study.random.Random;
+/**
+ * 分割関数クラス
+ * @author なごみそ
+ *
+ */
 public class SplitFunction {
+	/**
+	 * 分割に用いる特徴量の次元
+	 */
 	private int dimension;
-	private double threshold;
-	private RandomGenerator rg = new SFMT19937(12345);
 	
+	/**
+	 * 分割に用いる閾値
+	 */
+	private double threshold;
+	
+	/**
+	 * 分割関数生成
+	 * @param maxDimensionNumber 特徴ベクターの次元数
+	 */
 	public SplitFunction(int maxDimensionNumber) {
-		dimension = (int) Math.round(rg.nextUniform() 
-				* maxDimensionNumber);
-		threshold = rg.nextUniform();
+		dimension = Random.nextInt(maxDimensionNumber);
+		threshold = Random.nextUniform();
 	}
+	
 	
 	public int getDimension() {
 		return dimension;
