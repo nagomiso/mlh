@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
-	protected List<SampleData> sampleSet = new ArrayList<SampleData>();
+	protected List<TraningData> sampleSet = new ArrayList<TraningData>();
 	protected int depth = 0;
 
-	public void add(SampleData sampleData) {
+	public void add(TraningData sampleData) {
 		sampleSet.add(sampleData);
 	}
 
-	public List<SampleData> getSampleSet() {
+	public List<TraningData> getSampleSet() {
 		return sampleSet;
 	}
 
-	public void setSampleSet(List<SampleData> sampleSet) {
+	public void setSampleSet(List<TraningData> sampleSet) {
 		this.sampleSet = sampleSet;
 	}
 

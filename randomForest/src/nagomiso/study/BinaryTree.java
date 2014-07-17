@@ -1,9 +1,12 @@
 package nagomiso.study;
 
 public class BinaryTree extends Node {
-	private Node left;
-	private Node right;
-	private Node parents;
+	protected BinaryTree left;
+	protected BinaryTree right;
+	protected Node parents;
+
+	public BinaryTree() {
+	}
 
 	public BinaryTree(Node parents) {
 		this.parents = parents;
@@ -14,7 +17,7 @@ public class BinaryTree extends Node {
 		return left;
 	}
 
-	public void setLeft(Node left) {
+	public void setLeft(BinaryTree left) {
 		this.left = left;
 	}
 
@@ -22,7 +25,7 @@ public class BinaryTree extends Node {
 		return right;
 	}
 
-	public void setRight(Node right) {
+	public void setRight(BinaryTree right) {
 		this.right = right;
 	}
 

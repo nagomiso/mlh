@@ -1,6 +1,6 @@
 package nagomiso.study;
 
-public class SampleData {
+public class TraningData {
 	/**
 	 * 特徴ベクター
 	 */
@@ -11,9 +11,18 @@ public class SampleData {
 	 */
 	private int label;
 
-	public SampleData(double[] featureVector, int label) {
+	public TraningData(double[] featureVector, int label) {
 		this.featureVector = featureVector;
 		this.label = label;
+	}
+	
+	/**
+	 * 特徴ベクターの成分の値を返す
+	 * @param dimensionNumber 次元数
+	 * @return 成分
+	 */
+	public double component(int dimensionNumber) {
+		return featureVector[dimensionNumber];
 	}
 
 	public double[] getFeatureVector() {
