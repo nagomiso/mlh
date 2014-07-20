@@ -9,6 +9,7 @@ public class Node {
 	private List<Node> children;
 	private List<TraningData> data;
 	private SplitFunction spritFunction;
+	private int depth = 0;
 
 	public Node() {
 		data = new ArrayList<TraningData>();
@@ -48,6 +49,15 @@ public class Node {
 
 	public void setSpritFunction(SplitFunction spritFunction) {
 		this.spritFunction = spritFunction;
+	}
+	
+	
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package nagomiso.study.calculation;
+package nagomiso.study.util;
 
 import java.util.ArrayList;
 import java.util.HashSet;

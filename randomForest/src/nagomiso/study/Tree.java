@@ -3,7 +3,7 @@ package nagomiso.study;
 import java.util.ArrayList;
 import java.util.List;
 
-import static nagomiso.study.calculation.EmtropyCalculator.*;
+import static nagomiso.study.util.EmtropyCalculator.*;
 
 public class Tree {
 	/**
