@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import nagomiso.study.Node;
 import nagomiso.study.TraningData;
 
 public class EmtropyCalculator {
 	public static double getEmtropy(List<TraningData> datas) {
 		ArrayList<String> labelList = new ArrayList<String>();
-		for(TraningData data : datas){
+		for (TraningData data : datas) {
 			labelList.add(data.getLabel());
 		}
-		
+
 		HashSet<String> labelSet = new HashSet<String>(labelList);
 
 		double sum = 0;
 		for (String label : labelSet) {
 			sum -= getProbability(labelList, label)
-					* (Math.log(getProbability(labelList, label)) / Math
-							.log(2));
+					* (Math.log(getProbability(labelList, label)) / Math.log(2));
 		}
 
 		return sum;
@@ -34,7 +34,11 @@ public class EmtropyCalculator {
 		return counted;
 	}
 
-	private static double getProbability(List<String> labelList, String label) {
+	public static double getProbability(List<String> labelList, String label) {
 		return (double) countLabel(labelList, label) / labelList.size();
+	}
+
+	public static double getProbability(Node current, Node child) {
+		return (double) child.getData().size() / current.getData().size();
 	}
 }

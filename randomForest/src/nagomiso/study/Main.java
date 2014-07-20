@@ -30,12 +30,12 @@ public class Main {
 		}
 
 		Tree tree = new Tree();
-		Node root =new Node();
+		Node root = new Node();
 		root.setData(data);
 		tree.setRoot(root);
-		tree.createTree(data, tree.getRoot(), splitFunctions);
-		
-		System.out.print(true);
+		tree.createTree(data, splitFunctions);
+
+		System.out.print(tree.predict(new double[] { 2d, 1d, 1d }));
 	}
 
 }

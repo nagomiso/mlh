@@ -1,6 +1,7 @@
 package nagomiso.study;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Node {
@@ -12,8 +13,8 @@ public class Node {
 	public Node() {
 		data = new ArrayList<TraningData>();
 	}
-	
-	public void addData(TraningData td){
+
+	public void addData(TraningData td) {
 		data.add(td);
 	}
 
@@ -48,7 +49,29 @@ public class Node {
 	public void setSpritFunction(SplitFunction spritFunction) {
 		this.spritFunction = spritFunction;
 	}
-	
-	
 
+	/**
+	 * ノードの代表値を取得する
+	 * @return ノードの代表値
+	 */
+	public String getRepresentativeValue() {
+		HashMap<String, Integer> distribution = new HashMap<String, Integer>();
+		for (TraningData td : data) {
+			if (distribution.containsKey(td.getLabel())) {
+				distribution.put(td.getLabel(),
+						distribution.get(td.getLabel()) + 1);
+			} else {
+				distribution.put(td.getLabel(), 1);
+			}
+		}
+		int max = 0;
+		String representativeValue = "";
+		for (String key : distribution.keySet()) {
+			if (max < distribution.get(key)) {
+				max = distribution.get(key);
+				representativeValue = key;
+			}
+		}
+		return representativeValue;
+	}
 }
