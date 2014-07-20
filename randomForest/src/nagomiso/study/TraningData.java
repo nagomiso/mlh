@@ -1,36 +1,24 @@
 package nagomiso.study;
 
 public class TraningData {
-	/**
-	 * 特徴ベクター
-	 */
+	private String label;
 	private double[] featureVector;
-	
-	/**
-	 * 教師データ
-	 */
-	private int label;
 
-	public TraningData(double[] featureVector, int label) {
-		this.featureVector = featureVector;
+	public TraningData(String label, double[] featureVector) {
 		this.label = label;
+		this.featureVector = featureVector;
 	}
-	
-	/**
-	 * 特徴ベクターの成分の値を返す
-	 * @param dimensionNumber 次元数
-	 * @return 成分
-	 */
-	public double component(int dimensionNumber) {
-		return featureVector[dimensionNumber];
+
+	public String getLabel() {
+		return label;
 	}
 
 	public double[] getFeatureVector() {
 		return featureVector;
 	}
 
-	public int getLabel() {
-		return label;
+	public double getFeatureValue(int index) {
+		return featureVector[index];
 	}
 
 }

@@ -4,23 +4,51 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
-	protected List<TraningData> sampleSet = new ArrayList<TraningData>();
-	protected int depth = 0;
+	private Node parent;
+	private List<Node> children;
+	private List<TraningData> data;
+	private SplitFunction spritFunction;
 
-	public void add(TraningData sampleData) {
-		sampleSet.add(sampleData);
+	public Node() {
+		data = new ArrayList<TraningData>();
+	}
+	
+	public void addData(TraningData td){
+		data.add(td);
 	}
 
-	public List<TraningData> getSampleSet() {
-		return sampleSet;
+	public Node getParent() {
+		return parent;
 	}
 
-	public void setSampleSet(List<TraningData> sampleSet) {
-		this.sampleSet = sampleSet;
+	public void setParent(Node parent) {
+		this.parent = parent;
 	}
 
-	public int getDepth() {
-		return depth;
+	public List<Node> getChildren() {
+		return children;
 	}
+
+	public void setChildren(List<Node> children) {
+		this.children = children;
+	}
+
+	public List<TraningData> getData() {
+		return data;
+	}
+
+	public void setData(List<TraningData> data) {
+		this.data = data;
+	}
+
+	public SplitFunction getSpritFunction() {
+		return spritFunction;
+	}
+
+	public void setSpritFunction(SplitFunction spritFunction) {
+		this.spritFunction = spritFunction;
+	}
+	
+	
 
 }
