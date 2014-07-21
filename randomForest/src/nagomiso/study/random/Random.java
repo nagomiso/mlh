@@ -5,8 +5,6 @@ import gilberthouse.random.SFMT19937;
 
 /**
  * 乱数発生用のラッパークラス
- * @author なごみそ
- *
  */
 public class Random {
 	private static final RandomGenerator rg = new SFMT19937(12345);

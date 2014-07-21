@@ -9,26 +9,25 @@ import static nagomiso.study.random.Random.*;
 public class Main {
 
 	public static void main(String[] args) {
-		List<TraningData> data = importCsv("./traningdata/iris_normalized.data");
-		ArrayList<TraningData> testData = new ArrayList<TraningData>();
+		List<TraningData> traningDataSet = importCsv("./traningdata/iris_normalized.data");
+		ArrayList<TraningData> testDataSet = new ArrayList<TraningData>();
 
 		for (int i = 0; i < 20; ++i) {
-			testData.add(data.remove(nextInt(data.size() - 1)));
+			testDataSet
+					.add(traningDataSet.remove(nextInt(traningDataSet.size() - 1)));
 		}
 
-		ArrayList<SplitFunction> splitFunctions = new ArrayList<SplitFunction>();
-		for (int i = 0; i < data.get(0).getFeatureVector().length; ++i) {
-			for (double thrashold = 0d; thrashold < 1d; thrashold += 0.01)
-				splitFunctions.add(new SplitFunction(i, thrashold));
-		}
-		Tree tree = new Tree(data, splitFunctions);
-		
+		Forest forest = new Forest();
+		forest.lean(traningDataSet, 1000, 10);
+
 		System.out.printf("%-16s\t%-16s\n", "actual", "expected");
-		System.out.println("-----------------------------------------------------");
-		for(TraningData test : testData) {
-			String actual = tree.predict(test.getFeatureVector());
+		System.out
+				.println("-----------------------------------------------------");
+		for (TraningData test : testDataSet) {
+			String actual = forest.predict(test.getFeatureVector());
 			String expected = test.getLabel();
-			System.out.printf("%-16s\t%-16s\t%-5s\n", actual, expected, actual.equals(expected));
+			System.out.printf("%-16s\t%-16s\t%-5s\n", actual, expected,
+					actual.equals(expected));
 		}
 	}
 

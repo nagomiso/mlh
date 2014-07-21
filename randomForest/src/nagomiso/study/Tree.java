@@ -9,7 +9,7 @@ public class Tree {
 	/**
 	 * rootノード
 	 */
-	private Node root;
+	protected Node root;
 
 	/**
 	 * デフォルトコンストラクタ
@@ -54,7 +54,7 @@ public class Tree {
 	 * @param splitFunctions
 	 *            分割関数集合
 	 */
-	private void createTree(List<TraningData> data, Node current,
+	protected void createTree(List<TraningData> data, Node current,
 			List<SplitFunction> splitFunctions) {
 
 		// エントロピーが0になるか分割関数がなくなったら何もしない
@@ -107,7 +107,7 @@ public class Tree {
 	 *            削除する分割関数
 	 * @return 分割関数集合＼削除する分割関数
 	 */
-	private List<SplitFunction> deleteSplitFunction(
+	protected List<SplitFunction> deleteSplitFunction(
 			List<SplitFunction> splitFunctions, SplitFunction splitFunction) {
 
 		ArrayList<SplitFunction> deletedSplitFunctions = new ArrayList<SplitFunction>(
@@ -129,7 +129,7 @@ public class Tree {
 	 *            分割関数
 	 * @return 分割後のデータ
 	 */
-	private List<Node> split(List<TraningData> data, SplitFunction splitFunction) {
+	protected List<Node> split(List<TraningData> data, SplitFunction splitFunction) {
 		List<Node> splitedData = new ArrayList<Node>();
 
 		Node left = new Node();
@@ -180,7 +180,7 @@ public class Tree {
 	 *            現在のノード
 	 * @return クラスの推定値
 	 */
-	private String predict(double[] featureVector, Node current) {
+	protected String predict(double[] featureVector, Node current) {
 		if (current.getChildren() == null) {
 			return current.getRepresentativeValue();
 		}
