@@ -12,6 +12,26 @@ public class Tree {
 	private Node root;
 
 	/**
+	 * デフォルトコンストラクタ
+	 */
+	public Tree() {
+	}
+
+	/**
+	 * 実体化と同時に木を生成する
+	 * 
+	 * @param data
+	 *            学習用データ
+	 * @param splitFunctions
+	 *            分割関数集合
+	 */
+	public Tree(List<TraningData> data, List<SplitFunction> splitFunctions) {
+		this.root = new Node();
+		root.setData(data);
+		createTree(data, splitFunctions);
+	}
+
+	/**
 	 * Tree生成
 	 * 
 	 * @param data
@@ -63,6 +83,9 @@ public class Tree {
 		// 子ノードを設定
 		current.setChildren(split(data, betterSplitFunction));
 		current.setSpritFunction(betterSplitFunction);
+		if (current.getParent() != null) {
+			current.setDepth(current.getParent().getDepth() + 1);
+		} 
 
 		// すでに使用した分割関数を削除する
 		List<SplitFunction> deletedSplitFunctions = deleteSplitFunction(

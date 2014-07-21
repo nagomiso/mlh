@@ -9,7 +9,7 @@ import static nagomiso.study.random.Random.*;
 public class Main {
 
 	public static void main(String[] args) {
-		List<TraningData> data = importCsv("C:/Users/yuuki/git/randomForest/randomForest/traningdata/iris_normalized.data");
+		List<TraningData> data = importCsv("./traningdata/iris_normalized.data");
 		ArrayList<TraningData> testData = new ArrayList<TraningData>();
 
 		for (int i = 0; i < 20; ++i) {
@@ -21,13 +21,15 @@ public class Main {
 			for (double thrashold = 0d; thrashold < 1d; thrashold += 0.01)
 				splitFunctions.add(new SplitFunction(i, thrashold));
 		}
-		Tree tree = new Tree();
-		Node root = new Node();
-		root.setData(data);
-		tree.setRoot(root);
-		tree.createTree(data, splitFunctions);
+		Tree tree = new Tree(data, splitFunctions);
 		
-		
+		System.out.printf("%-16s\t%-16s\n", "actual", "expected");
+		System.out.println("-----------------------------------------------------");
+		for(TraningData test : testData) {
+			String actual = tree.predict(test.getFeatureVector());
+			String expected = test.getLabel();
+			System.out.printf("%-16s\t%-16s\t%-5s\n", actual, expected, actual.equals(expected));
+		}
 	}
 
 }
