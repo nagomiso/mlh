@@ -15,7 +15,7 @@ public class Forest {
 	 * @param treeNumber 木の本数
 	 * @param subsetSize 学習用部分集合のサイズ
 	 */
-	public void lean(List<TraningData> data, int treeNumber, int subsetSize) {
+	public void learn(List<TraningData> data, int treeNumber, int subsetSize) {
 		for (List<TraningData> traningDataSubset : getTraningDataSubsets(data,
 				treeNumber, subsetSize)) {
 			trees.add(new RandomForestTree(traningDataSubset, 5));
