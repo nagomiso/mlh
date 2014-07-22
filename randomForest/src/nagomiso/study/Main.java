@@ -18,7 +18,7 @@ public class Main {
 		}
 
 		Forest forest = new Forest();
-		forest.lean(traningDataSet, 1000, 10);
+		forest.learn(traningDataSet, 1000, 10);
 
 		System.out.printf("%-16s\t%-16s\n", "actual", "expected");
 		System.out
