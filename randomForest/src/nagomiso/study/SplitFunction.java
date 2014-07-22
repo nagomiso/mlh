@@ -1,21 +1,21 @@
 package nagomiso.study;
 
 public class SplitFunction {
-	private int featureDimensin;
+	private int featureDimension;
 	private double threshold;
 	private double emtropy = 0;
 
 	public SplitFunction(int featureDimension, double threshold){
-		this.featureDimensin = featureDimension;
+		this.featureDimension = featureDimension;
 		this.threshold = threshold;
 	}
 	
-	public int getFeatureDimensin() {
-		return featureDimensin;
+	public int getFeatureDimension() {
+		return featureDimension;
 	}
 
 	public void setFeatureDimensin(int featureDimensin) {
-		this.featureDimensin = featureDimensin;
+		this.featureDimension = featureDimensin;
 	}
 
 	public double getThreshold() {
@@ -41,7 +41,7 @@ public class SplitFunction {
 		long temp;
 		temp = Double.doubleToLongBits(emtropy);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + featureDimensin;
+		result = prime * result + featureDimension;
 		temp = Double.doubleToLongBits(threshold);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
@@ -59,7 +59,7 @@ public class SplitFunction {
 		if (Double.doubleToLongBits(emtropy) != Double
 				.doubleToLongBits(other.emtropy))
 			return false;
-		if (featureDimensin != other.featureDimensin)
+		if (featureDimension != other.featureDimension)
 			return false;
 		if (Double.doubleToLongBits(threshold) != Double
 				.doubleToLongBits(other.threshold))

@@ -136,7 +136,7 @@ public class Tree {
 		Node right = new Node();
 
 		for (TraningData td : data) {
-			if (td.getFeatureValue(splitFunction.getFeatureDimensin()) < splitFunction
+			if (td.getFeatureValue(splitFunction.getFeatureDimension()) < splitFunction
 					.getThreshold()) {
 
 				left.addData(td);
@@ -184,7 +184,7 @@ public class Tree {
 		if (current.getChildren() == null) {
 			return current.getRepresentativeValue();
 		}
-		if (featureVector[current.getSpritFunction().getFeatureDimensin()] < current
+		if (featureVector[current.getSpritFunction().getFeatureDimension()] < current
 				.getSpritFunction().getThreshold()) {
 			return predict(featureVector, current.getChildren().get(0));
 		} else {
